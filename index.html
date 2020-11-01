@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>football score</title>
+    
+    <link rel="stylesheet" href="./style.css">
+<body>
+    <div class="container">
+       <div class="row">
+           <div class="col">
+                <img class="profile-icon"src="assest/americas.png" alt="americas logo" height="150px" width="150";>
+             <span class="profile-name">Americas </span>
+              <div id="t1_O" class=" row round-goals" onclick="add_zero(this)">
+              </div>
+         </div>
+        <div class="col">
+            <div class="row score">
+                <span id='t1' onclick="plus1(this); add_zero(t1_O)">0</span>
+                <span>-</span>
+                <span id='t2' onclick="plus1(this); add_zero(t2_O)">0</span>
+            </div>
+            <div class="row score">
+                <span id='winner'>Draw</span>
+            </div>
+        </div>
+        <div class="col">
+            <img class="profile-icon"src="assest/newcastel.png" alt="newcastel logo" width="150px" height="150px">
+            <span class="profile-name">Newcastel </span>
+            <div id="t2_O" class=" row round-goals" onclick="add_zero(this)">
+            </div>
+            </div>
+        </div>
+            <!-- <div class="row" style='text-align: center;'>
+                <button id="tr again-button">Try Again</button>
+            </div> -->
+    </div>
+</div>
+<script>
+    t1_O = document.getElementById("t1_O");
+    t2_O = document.getElementById("t2_O");
+
+    t1 = document.getElementById("t1")
+    t2 = document.getElementById("t2")
+
+    win = document.getElementById("winner");
+
+    function check_winner() {
+        if (parseInt(t1.innerHTML) > parseInt(t2.innerHTML)) {
+            win.innerHTML = "Americas"
+        } else if (parseInt(t2.innerHTML) > parseInt(t1.innerHTML)) {
+            win.innerHTML = "New Castle"
+        } else {
+            win.innerHTML = "Draw"
+        }
+    }
+
+    function plus1(span) {
+        span.innerHTML = (parseInt(span.innerHTML) + 1).toString()
+        check_winner()
+    }
+
+    function add_zero(div) {
+        span = document.createElement("span")
+        span.className = "col"
+        span.innerHTML = "O"
+        div.appendChild(span)
+    }
+</script>
+</body>
+</html>
